@@ -1,6 +1,6 @@
 Feature: Login Functionality
 
-Scenario: Valid Login
+	Scenario: Valid Login
 	Given I navigated to HRM website
 	When I enter a valid username
 	And I enter a valid password
@@ -14,4 +14,12 @@ Scenario: Valid Login
 	And I enter an invalid password
 	And I click on the login button
 	Then I validate that Invalid Credentials
+	And I will quit the browser
+	
+	Scenario: Empty Password Login
+	Given I navigated to HRM website
+	When I enter a valid username
+	And I enter empty password
+	And I click on the login button
+	Then I validate that Password cannot be empty
 	And I will quit the browser

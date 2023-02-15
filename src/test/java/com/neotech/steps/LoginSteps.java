@@ -71,4 +71,22 @@ public class LoginSteps extends CommonMethods {
 		}
 	}
 
+	@When("I enter empty password")
+	public void I_enter_empty_password() {
+		sendText(login.password, "");
+	}
+
+	@Then("I validate that Password cannot be empty")
+	public void I_validate_that_Password_cannot_be_empty() {
+		String expectedMessage = "Password cannot be empty";
+		String actualMessage = login.passwordError.getText();
+
+		if (actualMessage.equals(expectedMessage)) {
+			System.out.println("Test passed");
+		} else {
+			System.out.println("Test failed");
+		}
+
+	}
+
 }
